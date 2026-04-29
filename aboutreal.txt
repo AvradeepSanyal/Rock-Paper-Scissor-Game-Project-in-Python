@@ -1,0 +1,70 @@
+Ask the user to make a choice 
+if choice is not valid
+    print an error
+let the computer to make a choice
+print choices (emojis)
+determine the winner
+ask the user if they want to continue
+if not
+    terminate
+
+
+error log:
+1. didnt think of making the computer take a choice after knowing if our value is right or wrong
+2. have to determine to winner later not altogether 
+3. ask the winner later if they wanna continue
+
+doubt, ideas, correction and tips log:
+1. Cant think how cmputer will choose its response randomly and, how can i show it 
+(we can use random and like   random.choice(choices)  after importing random),(we can show it my string formatting)
+2. .lower() after input(), makes your input handling case-insensitive, so the user doesn’t have to worry about typing exactly 'y' or 'n'
+3. if we can store the list of valid choices in a list and the check to see if the users choice is in that list or not 
+4. We can replace list with tuple so it becomes immutable and thus no fear of any updatation or deletation of list or values accidently
+5. cant think of how we can show emojis or show what i and computer chose efficiently
+(we can use a dictionary like line 3 and 11...)
+6. we can use \ (back slash) to tell python its a multiline code in line
+
+(didnt thought through about the real logic enough - my mistake)
+
+Now all of the above things might not work as we will be now
+REFACTORING our code:
+1. even after coding we should find oppurtunities to refine or improve our coding and review our code
+(in coding we call this:)
+= REFACTORING which means changing the structure of the code without changing its functionaility
+Basically chanfing the structure of our code without changing the functionality
+Common reactoring technique is MODULARIZATION
+= MODULARIZATION is breaking down a large program into smaller reusable parts called modules or functions.
+So changes in this are noted below:
+
+updatation ideas and corrections:
+1. we can make functions for each parts of code to make it for efficient and reusable (from line 6 to 12)
+2. from line 6  to 12
+= what we did is for the specifc code from line 7 to 10 we make a function of it 
+and we can change (if user_choice not in TO user_choice in choices and return user_choice,
+else print inaclid choice and cut continue as the code will autmatically do its work for us) basically swapping if and else statement
+and make it a function and call get user_choice() fucntion afterwards whenevr needed (line 16)
+3. then we will do same for all the parts we think is important we turn them into func and use whenver needed
+(like func {play_game, get_user_choice, display_choices, determining_winner, if_want_to_continue})
+4. we can also make the whole logic of calling or other thinsg a function too like in func play_game()
+5. and surely after making it other func will throw error to fix that we will pass parameters for each function for which variable they are missing
+and this happens coz when we make fucntions or modularize codes instead of staying all in one the variable,objects,funcs,values goes to local frame for that func rather than staying in global frame
+6. in this user-choice and computer_choice will act error coz they are only initialised in local frame of func play_game()
+7. even after doing all this things might not work until we call play_game() so yeah thinsg are FUNNNN
+8. Another thing we will change is our code is repeated things like choices or emojis why in programming we have a thing 
+called DRY which is DONT REPEAT YOURSELF.
+= Why coz if we repeat ourselves multiple times we have to change those vlaues multple time which is clearly impossible when we work with big codes so for that we apply dry 
+how we will do that in emojis and choices 
+1st instead of emojis and choices we will make them one by {  changing choices = ('r', 'p', 's') TO choices = tuple(emojis.keys())} how it works?
+coz it will make dict immutable as tuple is immutable and only show the keys of emojis which are r,p,s
+in future when we wanna update the r p s to something else we can always do it at one place like in line 3 TO 5 and it will be done to others (very imp)
+
+error log
+1. btw we cant make this code from line 40 to 45 a func as we might need while loop in it as it have continue and break
+and even if we edit it within a while loop and make it a fucntion or code crash coz after first iteration it would ask us 
+infinitely if we wanna continue or not and if we do n it would break and if we y it would run infinitely.
+2. missed the understanding of line 3 to 7
+
+tips:
+func name should always be descriptive
+use ctrl + / for commenting all 
+use ctrl + d 2 times for changing all names of same alphabet together
